@@ -20,5 +20,6 @@ public class Main {
         e1.increaseSalary(scanner.nextDouble());
 
         System.out.println("Update data: " + e1);
+        scanner.close();
     }
 }
