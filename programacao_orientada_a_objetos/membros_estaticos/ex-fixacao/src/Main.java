@@ -8,11 +8,11 @@ public class Main {
         double dolar = scanner.nextDouble();
 
         System.out.println("How many dollars will be bought? ");
-        int amount = scanner.nextInt();
+        double amount = scanner.nextDouble();
 
         double result = CurrencyConverter.converter(dolar, amount);
 
-        System.out.println("Amount to be paid in reais = " + result);
+        System.out.printf("Amount to be paid in reais = %.2f\n" , result);
     }
 
 
