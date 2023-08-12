@@ -1,11 +1,11 @@
 package entities;
 
 public class Funcionario {
-    private int id;
+    private Integer id;
     private String name;
-    private double salary;
+    private Double salary;
 
-    public Funcionario(int id, String name, double salary) {
+    public Funcionario(Integer id, String name, Double salary) {
         this.id = id;
         this.name = name;
         this.salary = salary;
@@ -20,7 +20,7 @@ public class Funcionario {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -36,7 +36,7 @@ public class Funcionario {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 

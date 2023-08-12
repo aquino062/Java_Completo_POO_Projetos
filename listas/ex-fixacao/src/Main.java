@@ -14,11 +14,16 @@ public class Main {
         List<Funcionario> list = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-
+            System.out.println();
             System.out.println("Employee #" + (i + 1) + ":");
 
             System.out.print("id: ");
             int id = scanner.nextInt();
+            while (temId(list, id)) {
+                System.out.println("Esse id já existe! tente novamente: ");
+                id = scanner.nextInt();
+            }
+
             scanner.nextLine(); // Consumir a quebra de linha
             System.out.print("Name: ");
             String name = scanner.nextLine();
@@ -30,22 +35,31 @@ public class Main {
 
         System.out.println("Enter the employee id that will have salary increase: ");
         int idAumento = scanner.nextInt();
-        System.out.println("Enter the percentage: ");
-        double percentage = scanner.nextDouble();
 
-        for (Funcionario x : list) {
-            if (x.getId() == idAumento) {
-                x.aumentosalario(percentage);
-            }
+        double percentage = 0.0;
+
+        Funcionario fun = list.stream().filter(funcionario -> funcionario.getId() == idAumento).findFirst().orElse(null);
+
+
+        if (fun == null) {
+            System.out.println("This id does not exist!");
+        } else {
+            System.out.println("Enter the percentage: ");
+            percentage = scanner.nextDouble();
+            fun.aumentosalario(percentage);
         }
 
+        System.out.println();
         System.out.println("List of employees: ");
 
         for (Funcionario x : list) {
             System.out.println(x);
         }
         scanner.close();
-        
+    }
 
+    public static boolean temId(List<Funcionario> list, int id) {
+        Funcionario fun = list.stream().filter(funcionario -> funcionario.getId() == id).findFirst().orElse(null);
+        return fun != null;
     }
 }
